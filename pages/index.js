@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/utils.module.css';
+import Layout, { siteTitle } from '../components/layout'
+import utilStyles from '../styles/utils.module.css'
+import { getSortedPastData } from '../lib/posts'
 
-export default function Home() {
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -12,6 +13,24 @@ export default function Home() {
       <section className={utilStyles.headingMd}>
         <p>I'm a versatile software engineer and a translator (English/Mandarin/Malay/Japanese)!</p>
       </section>
+
+      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}/>
+          ))}
+        </ul>
+      </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPastData()
+  return {
+    props: {
+      allPostsData
+    }
+  }
 }
