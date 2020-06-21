@@ -11,3 +11,11 @@
 
 ## getServerSideProps
 - If you need to fetch data at request time instead of at build time
+
+## API Routes
+### Do Not Fetch an API Route from getStaticProps or getStaticPaths
+- You should not fetch an API Route from getStaticProps or getStaticPaths.
+- Instead, write your server-side code directly in getStaticProps or getStaticPaths (or call a helper function).
+
+## Deployment
+- DPS Workflow: Develop, Preview, and Ship.
