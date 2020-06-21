@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPastData } from '../lib/posts'
+import Layout, { siteTitle } from '_components/layout'
+import utilStyles from '_styles/utils.module.css'
+import { getSortedPastData } from '_lib/posts'
 
 export default function Home({ allPostsData }) {
   return (
